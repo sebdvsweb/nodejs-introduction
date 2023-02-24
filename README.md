@@ -60,6 +60,9 @@ app.get('/ma-page', (req, res) => {
     res.send('<form action="/creer-fichier"><input type="text" name="mon_input"></form>')
 })
 ```
+> ⚠️ **Attention** ⚠️
+> Lorsque tu modifies le code, il faut relancer le serveur en faisant CTRL+C dans le terminal et relancer `node index.js` 
+
 
 Essaye de créer une route capable de recevoir une phrase saisie depuis la page précédente et de créer un fichier automatiquement dans ton projet qui contiendra le texte saisi ! 
 
