@@ -111,23 +111,25 @@ app.get('/creer-fichier', (req, res) => {
 
 Maintenant, envoie une phrase via le formulaire sur /ma-page et observe la création d'un fichier test.txt contenant le texte saisi.
 
+### Explication du code ci-dessus
+
+1. Requête GET : Pour récupérer les données envoyées via le formulaire, tu dois utiliser req.query pour accéder aux paramètres de la requête. Par exemple, pour accéder au contenu de l'input nommé mon_input, utilise req.query.mon_input.
+
+2. Utilisation de fs : La bibliothèque fs (file system) de Node.js permet de manipuler les fichiers. Tu peux l'importer avec const fs = require('fs');.
+
+3. Créer un fichier : Utilise la méthode fs.writeFileSync pour écrire dans un fichier. Cette méthode prend deux arguments : le nom du fichier et le contenu à écrire.
+
+4. Retourner une réponse : Une fois le fichier créé, envoie une réponse au client en utilisant res.send.
+
 #### Créer un fichier différent à chaque fois
-Pour créer un fichier unique à chaque soumission, utilise un nom de fichier dynamique :
+Pour créer un fichier unique à chaque soumission, utilise un nom de fichier dynamique.
+Voici un guide détaillé :
 
-```js
-app.get('/creer-fichier', (req, res) => {
-    const fs = require('fs');
-    const content = req.query.mon_input;
-    const fileName = `file_${Date.now()}.txt`; // Utilise un timestamp pour le nom du fichier
+1. Importer fs : const fs = require('fs');
+2. Récupérer le contenu de l'input : const content = req.query.mon_input;
+3. Générer un nom de fichier unique : const fileName = \file_${Date.now()}.txt`;`
+4. Écrire dans le fichier : fs.writeFileSync(fileName, content);
+5. Envoyer une réponse : res.send(\Fichier ${fileName} créé !`);`
 
-    try {
-        fs.writeFileSync(fileName, content);
-        res.send(`Fichier ${fileName} créé !`);
-    } catch (err) {
-        console.error(err);
-        res.send("Échec de création du fichier.");
-    }
-});
-```
 
 Maintenant, chaque soumission créera un nouveau fichier avec un nom unique.
