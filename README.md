@@ -48,7 +48,7 @@ npm install express
 ```
 
 #### Crée un fichier index.js : 
-À la racine de ton dossier, crée un fichier index.js et copie-colle le code suivant depuis le site officiel : Express Hello World.
+À la racine de ton dossier, crée un fichier index.js et copie-colle le code suivant depuis le site officiel : [Express Hello World](https://expressjs.com/fr/starter/hello-world.html).
 
 #### Lance ton programme Node.js : 
 Dans le terminal, tape :
