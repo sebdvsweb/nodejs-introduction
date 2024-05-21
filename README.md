@@ -133,3 +133,16 @@ Voici un guide détaillé :
 
 
 Maintenant, chaque soumission créera un nouveau fichier avec un nom unique.
+
+Bravo! Passsons à quelques exercices simples.
+
+## Exercices 
+
+### Exercice 1 : Afficher une page HTML
+Crée une nouvelle route en GET avec l'adresse /page-html qui affiche une page HTML contenant un titre <h1> et un paragraphe <p> avec un texte de ton choix.
+
+### Exercice 2 : Afficher une liste de courses
+Crée une nouvelle route en GET avec l'adresse /courses qui affiche une liste de courses sous forme de texte. Tu peux stocker les éléments de la liste dans un tableau et les afficher en utilisant une boucle `forEach`.
+
+### Exercice 3 : Afficher l'heure actuelle
+Crée une nouvelle route en GET avec l'adresse /heure qui affiche l'heure actuelle au format HH:MM:SS. Utilise la fonction `new Date()` pour obtenir l'heure actuelle et formate-la de manière appropriée.
