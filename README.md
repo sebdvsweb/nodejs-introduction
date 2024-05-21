@@ -113,13 +113,15 @@ Maintenant, envoie une phrase via le formulaire sur /ma-page et observe la créa
 
 ### Explication du code ci-dessus
 
-1. Requête GET : Pour récupérer les données envoyées via le formulaire, tu dois utiliser req.query pour accéder aux paramètres de la requête. Par exemple, pour accéder au contenu de l'input nommé mon_input, utilise req.query.mon_input.
+```js
+// 1. Requête GET : Pour récupérer les données envoyées via le formulaire, tu dois utiliser req.query pour accéder aux paramètres de la requête. Par exemple, pour accéder au contenu de l'input nommé mon_input, utilise req.query.mon_input.
 
-2. Utilisation de fs : La bibliothèque fs (file system) de Node.js permet de manipuler les fichiers. Tu peux l'importer avec const fs = require('fs');.
+// 2. Utilisation de fs : La bibliothèque fs (file system) de Node.js permet de manipuler les fichiers. Tu peux l'importer avec const fs = require('fs');.
 
-3. Créer un fichier : Utilise la méthode fs.writeFileSync pour écrire dans un fichier. Cette méthode prend deux arguments : le nom du fichier et le contenu à écrire.
+// 3. Créer un fichier : Utilise la méthode fs.writeFileSync pour écrire dans un fichier. Cette méthode prend deux arguments : le nom du fichier et le contenu à écrire.
 
-4. Retourner une réponse : Une fois le fichier créé, envoie une réponse au client en utilisant res.send.
+// 4. Retourner une réponse : Une fois le fichier créé, envoie une réponse au client en utilisant res.send.
+```
 
 ### Créer un fichier différent à chaque fois
 Pour créer un fichier unique à chaque soumission, utilise un nom de fichier dynamique.
