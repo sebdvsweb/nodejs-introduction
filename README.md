@@ -1,77 +1,102 @@
-### Introduction à NodeJS
+# Introduction à Node.js
 
-Présentation : https://docs.google.com/presentation/d/1jf586G62z-13970_4TmWhnYsR9jZUjg8rGzMNwfTQkg/edit?usp=sharing
+**Présentation :** [Lien vers la présentation](https://docs.google.com/presentation/d/1jf586G62z-13970_4TmWhnYsR9jZUjg8rGzMNwfTQkg/edit?usp=sharing)
 
-# Créé ton premier code backend
+## Crée ton premier code backend
 
-## 1. Installe NodeJS et NPM
+### 1. Installe Node.js et NPM
 
-Pour commencer, va sur la page officielle de NodeJS.org et téléchargez la version LTS ( qui veut dire la dernière version stable ) pour Windows ou ta plateforme.
-L'installeur spécial Windows installe à la fois NodeJS et NPM.
+Pour commencer, rends-toi sur la page officielle de [Node.js](https://nodejs.org/) et télécharge la version LTS (Long Term Support), qui est la version stable recommandée, pour Windows ou ta plateforme.
 
-L'installation de NodeJS va ajouter la commande `node` dans ton terminal Windows/Vscode. 
-Lorsqu'on fait du backend, on utilise souvent le terminal. Il va falloir s'habituer ! 
+L'installateur pour Windows installe à la fois Node.js et NPM.
 
-La commande `node` te permettra alors d'executer les programmes NodeJS. Et oui, les programmes NodeJS ne s'executent que dans le terminal, même si bien sûr on va continuer de faire des sites qui apparaissent dans le navigateur. 
+#### Vérification de l'installation
 
-NPM permet d'ajouter des librairies, que l'on appelle 'paquets' dans le jargon. 
+L'installation de Node.js ajoutera la commande `node` dans ton terminal (Windows, VSCode, etc.). Pour vérifier que tout est bien installé, ouvre un terminal et tape les commandes suivantes :
 
-Tout comme NodeJS installe la commande `node`, NPM installera la commande `npm`.
+```sh
+node -v
+npm -v
+```
 
-## 2. Initialise ton projet backend
+Ces commandes devraient afficher les versions de Node.js et NPM installées.
 
-Ouvre un nouveau dossier vide dans VSCode.
-Dans ton éditeur VSCode, ouvre un nouveau terminal.
-Dans le terminal qui apparaît, tape la commande suivante : `npm init` et répond aux questions.
-Ceci va créer un fichier `package.json` à la racine de ton dossier, c'est normal ! 
-Le but du fichier `package.json` est de contenir la liste des librairies que tu auras installé.
+#### Utilisation du terminal
+Nous utiliserons souvent le terminal pour exécuter des programmes Node.js. La commande node te permettra de lancer des programmes Node.js directement depuis le terminal.
 
-## 3. Installe le paquet ExpressJS
+NPM (Node Package Manager) te permettra d'ajouter des bibliothèques (ou "paquets") à ton projet. Il installe également la commande npm.
 
-Suis les instructions du site officiel https://expressjs.com/
+### 2. Initialise ton projet backend
+Crée un dossier de projet : Ouvre un nouveau dossier vide dans VSCode.
+Ouvre un terminal dans VSCode : Va dans le menu Terminal > Nouveau Terminal.
+Dans le terminal qui apparaît, tape la commande suivante :
 
-Créer un fichier index.js à la racine de ton dossier, et copie colle le code suivant : 
+```sh
+npm init
+```
 
-https://expressjs.com/en/starter/hello-world.html
+Réponds aux questions posées. Cela créera un fichier package.json à la racine de ton dossier. Ce fichier contiendra la liste des bibliothèques que tu installeras.
 
-Ensuite dans un nouveau terminal dans VSCode, tu n'as plus qu'à lancer la commande : 
-`node index.js`
+### 3. Installe le paquet Express.js
+Express.js est une bibliothèque qui facilite la création de serveurs web avec Node.js.
 
-Ceci executer ton programme NodeJS. Est ce que ça marche ? 
-Si ça marche, tu devrais pouvoir aller à l'adresse `http://localhost:3000`
+#### Installe Express.js : 
+Dans le terminal, tape la commande suivante :
 
+```sh
+npm install express
+```
 
-## 4. Fais ta première route GET /ma-page
+#### Crée un fichier index.js : 
+À la racine de ton dossier, crée un fichier index.js et copie-colle le code suivant depuis le site officiel : Express Hello World.
 
-Dans le langage backend, une route c'est tout simplement une adresse web ! 
-On peut interroger une adresse web de 2 façons : GET ou POST.
+#### Lance ton programme Node.js : 
+Dans le terminal, tape :
 
-Le but de cet exercice est que tu arrives à créer une deuxieme route en GET qui aura pour adresse
-"/ma-page" donc qui donnera l'url `http://localhost:3000/ma-page`.
-Mets ce que tu veux comme contenu dans cette page.
+```sh
+node index.js
+```
 
-> ⚠️ **Attention** ⚠️
-> Lorsque tu modifies le code, il faut relancer le serveur en faisant CTRL+C dans le terminal et relancer `node index.js` 
+Si tout fonctionne, tu devrais pouvoir accéder à l'adresse http://localhost:3000.
 
+### 4. Fais ta première route GET /ma-page
+En backend, une "route" est simplement une adresse web. On peut interroger une adresse web de deux façons : GET ou POST.
 
-# Aller plus loin en manipulant les fichiers
-
-Essayons quelque chose de fun ! 
-Au lieu d'afficher juste du texte dans ta page, tu vas mettre un code html d'input.
+#### Création d'une nouvelle route GET
+Le but de cet exercice est de créer une nouvelle route en GET avec l'adresse /ma-page, ce qui donnera l'URL http://localhost:3000/ma-page. Ajoute ce code dans ton fichier index.js :
 
 ```js
 app.get('/ma-page', (req, res) => {
-    res.send('<form action="/creer-fichier"><input type="text" name="mon_input"></form>')
-})
+    res.send('Bienvenue sur ma page!');
+});
 ```
 
+Pour tester ta nouvelle route, relance le serveur en arrêtant le précédent (Ctrl+C dans le terminal) et en relançant la commande :
 
-Essaye de créer une route capable de recevoir une phrase saisie depuis la page précédente et de créer un fichier automatiquement dans ton projet qui contiendra le texte saisi ! 
+```sh
+node index.js
+```
+
+Puis, visite http://localhost:3000/ma-page.
+
+### 5. Aller plus loin en manipulant les fichiers
+Nous allons maintenant créer un formulaire HTML sur /ma-page et traiter les données soumises pour créer un fichier.
+
+#### Afficher un formulaire HTML
+Remplace le contenu de la route /ma-page par ceci :
+
+```js
+app.get('/ma-page', (req, res) => {
+    res.send('<form action="/creer-fichier"><input type="text" name="mon_input"><button type="submit">Envoyer</button></form>');
+});
+```
+
+#### Créer une route pour traiter le formulaire
+Ajoute cette nouvelle route à ton fichier index.js :
 
 ```js
 app.get('/creer-fichier', (req, res) => {
     const fs = require('fs');
-
     const content = req.query.mon_input;
 
     try {
@@ -79,9 +104,30 @@ app.get('/creer-fichier', (req, res) => {
         res.send("Fichier créé !");
     } catch (err) {
         console.error(err);
-        res.send("Echec de création du fichier.");
+        res.send("Échec de création du fichier.");
     }
-})
+});
 ```
 
-Essaye maintenant de trouver un code qui permet de créer un fichier différent à chaque fois. 
+Maintenant, envoie une phrase via le formulaire sur /ma-page et observe la création d'un fichier test.txt contenant le texte saisi.
+
+#### Créer un fichier différent à chaque fois
+Pour créer un fichier unique à chaque soumission, utilise un nom de fichier dynamique :
+
+```js
+app.get('/creer-fichier', (req, res) => {
+    const fs = require('fs');
+    const content = req.query.mon_input;
+    const fileName = `file_${Date.now()}.txt`; // Utilise un timestamp pour le nom du fichier
+
+    try {
+        fs.writeFileSync(fileName, content);
+        res.send(`Fichier ${fileName} créé !`);
+    } catch (err) {
+        console.error(err);
+        res.send("Échec de création du fichier.");
+    }
+});
+```
+
+Maintenant, chaque soumission créera un nouveau fichier avec un nom unique.
