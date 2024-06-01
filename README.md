@@ -133,11 +133,11 @@ Maintenant, envoie une phrase via le formulaire sur /ma-page et observe la créa
 Pour créer un fichier unique à chaque soumission, utilise un nom de fichier dynamique.
 Voici un guide détaillé :
 
-1. Importer fs : `const fs = require('fs');`
-2. Récupérer le contenu de l'input : `const content = req.query.mon_input;`
-3. Générer un nom de fichier unique : `const fileName = `file_${Date.now()}.txt`;`
-4. Écrire dans le fichier : `fs.writeFileSync(fileName, content);`
-5. Envoyer une réponse : `res.send(`Fichier ${fileName} créé !`);`
+1. Importer fs : "const fs = require('fs');"
+2. Récupérer le contenu de l'input : "const content = req.query.mon_input;"
+3. Générer un nom de fichier unique : "const fileName = `file_${Date.now()}.txt`;"
+4. Écrire dans le fichier : "fs.writeFileSync(fileName, content);"
+5. Envoyer une réponse : "res.send(`Fichier ${fileName} créé !`);"
 
 
 Maintenant, chaque soumission créera un nouveau fichier avec un nom unique.
